@@ -10,22 +10,24 @@ ProductTag.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      primaryKey: true,
       autoIncrement: true,
-      primaryKey: true
     },
     product_id: {
       type: DataTypes.INTEGER,
       references: {
+        // This references the `Product` id, which we set in `Product.js` as its `id` property
         model: 'product',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     tag_id: {
       type: DataTypes.INTEGER,
       references: {
+        // This references the `Tag` id, which we set in `Tag.js` as its `id` property
         model: 'tag',
-        key: 'id'
-      }
+        key: 'id',
+      },
     }
   },
   {
